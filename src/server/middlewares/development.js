@@ -4,10 +4,12 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const logger = require('../logger');
 const webpackConfig = require('../../../config/webpack.config.dev');
+const renderHtml = require('./renderHtml');
 
 const compiler = webpack(webpackConfig);
 
 module.exports = function setup(app) {
+  renderHtml(resolve(__dirname, '..', '..', '..', 'build-dev', 'client', 'index.html'));
   app.use(
     webpackDevMiddleware(compiler, {
       logger,

@@ -1,15 +1,16 @@
-const {resolve} = require('path');
-const express = require('express');
-const compression = require('compression');
-const renderHtml = require('./renderHtml');
+import {resolve} from 'path';
+import express from 'express';
+import compression from 'compression';
+import renderHtml from './renderHtml';
 
 const clientBuildPath = resolve(__dirname, '..', '..', 'client');
 
-module.exports = function setup(app) {
-  renderHtml(resolve(clientBuildPath, 'index.html'));
+export default function(app) {
   app.use(compression());
   app.use('/', express.static(clientBuildPath));
 
   // all other requests be handled by UI itself
-  app.get('*', (req, res) => res.sendFile(resolve(clientBuildPath, 'index.html')));
-};
+  app.get('*', (req, res) => {
+    res.send(renderHtml(resolve(clientBuildPath, 'index.html')), req);
+  });
+}

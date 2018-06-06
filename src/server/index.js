@@ -1,8 +1,10 @@
-const http = require('http');
-const express = require('express');
-const bodyParser = require('body-parser');
-const setupApiRoutes = require('./middlewares/api');
-const logger = require('./logger');
+import http from 'http';
+import express from 'express';
+import bodyParser from 'body-parser';
+import setupApiRoutes from './middlewares/api';
+import logger from './logger';
+import development from './middlewares/development';
+import production from './middlewares/production';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.HTTP_PORT = process.env.HTTP_PORT || 3001;
@@ -20,8 +22,7 @@ function onUnhandledError(err) {
 process.on('unhandledRejection', onUnhandledError);
 process.on('uncaughtException', onUnhandledError);
 
-const setupAppRoutes =
-  process.env.NODE_ENV === 'development' ? require('./middlewares/development') : require('./middlewares/production');
+const setupAppRoutes = process.env.NODE_ENV === 'development' ? development : production;
 
 const app = express();
 

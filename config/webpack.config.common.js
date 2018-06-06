@@ -64,7 +64,12 @@ module.exports = {
     new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
   resolve: {
-    modules: ['node_modules', join('src')]
+    modules: ['node_modules', join('src')],
+    alias: {
+      components: resolve(__dirname, 'src/components/'),
+      containers: resolve(__dirname, 'src/containers/'),
+      store: resolve(__dirname, 'src/store/')
+    }
   },
   optimization: {
     splitChunks: {

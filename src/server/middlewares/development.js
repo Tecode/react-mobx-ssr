@@ -1,15 +1,14 @@
-const {resolve} = require('path');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const logger = require('../logger');
-const webpackConfig = require('../../../config/webpack.config.dev');
-const renderHtml = require('./renderHtml');
+import {resolve} from 'path';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import logger from '../logger';
+import webpackConfig from '../../../config/webpack.config.dev';
+import renderHtml from './renderHtml';
 
 const compiler = webpack(webpackConfig);
 
-module.exports = function setup(app) {
-  renderHtml(resolve(__dirname, '..', '..', '..', 'build-dev', 'client', 'index.html'));
+export default function(app) {
   app.use(
     webpackDevMiddleware(compiler, {
       logger,
@@ -23,5 +22,7 @@ module.exports = function setup(app) {
   app.use(webpackHotMiddleware(compiler));
 
   // all other requests be handled by UI itself
-  app.get('*', (req, res) => res.sendFile(resolve(__dirname, '..', '..', '..', 'build-dev', 'client', 'index.html')));
-};
+  app.get('*', (req, res) => {
+    res.send(renderHtml(resolve(__dirname, '..', '..', '..', 'build-dev', 'client', 'index.html')), req);
+  });
+}

@@ -5,15 +5,16 @@ import cheerio from 'cheerio';
 import {renderToString} from 'react-dom/server';
 import {StaticRouter} from 'react-router-dom';
 import {Provider} from 'mobx-react';
-import Router from '../../router';
+import App from '../../App';
 import allStore from '../../store';
 import {toJS} from 'mobx';
 
 export default function(path, req) {
+  allStore.miniStore = {name: 'PPPPP'};
   const router = (
     <Provider {...allStore}>
       <StaticRouter location={req.originalUrl}>
-        <Router />
+        <App />
       </StaticRouter>
     </Provider>
   );

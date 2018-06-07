@@ -7,10 +7,11 @@ const clientBuildPath = resolve(__dirname, '..', '..', '..', 'build', 'client');
 
 export default function(app) {
   app.use(compression());
-  // app.use('/', express.static(clientBuildPath));
+  app.use('/', express.static(clientBuildPath));
 
   // all other requests be handled by UI itself
   app.get('*', (req, res) => {
-    res.send(renderHtml(resolve(clientBuildPath, 'index.html'), req));
+    res.status('200');
+    res.send(renderHtml(resolve(clientBuildPath, 'server.html'), req));
   });
 }

@@ -36,6 +36,6 @@ app.use(bodyParser.json());
 setupApiRoutes(app);
 setupAppRoutes(app);
 
-http.createServer(app).listen(process.env.HTTP_PORT, () => {
+app.listen(process.env.HTTP_PORT, function() {
   logger.info(`HTTP server is now running on http://localhost:${process.env.HTTP_PORT}`);
 });

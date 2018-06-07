@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
+import {Helmet} from 'react-helmet';
 
 export default class NavBar extends Component {
   render() {
-    return <div>文章相关</div>;
+    return (
+      <div>
+        <Helmet defaultTitle="文章相关" />
+        文章相关56
+      </div>
+    );
   }
 }

@@ -25,5 +25,4 @@ export class AppLayout extends React.Component {
   }
 }
 
-
 export default AppLayout;

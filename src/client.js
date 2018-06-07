@@ -7,7 +7,6 @@ import {Provider} from 'mobx-react';
 import api from 'api/index';
 import allStore from './store';
 import {BrowserRouter} from 'react-router-dom';
-// import {toJS} from 'mobx';
 import App from './App';
 import combineServerData from './helpers/combineServer';
 // global styles
@@ -17,8 +16,6 @@ import './style.scss';
 if (!window.Intl) {
   window.Intl = intl;
 }
-
-const arr = [...allStore];
 
 api.setEndpoint('/api');
 combineServerData(allStore, window.__INITIAL_STATE__);

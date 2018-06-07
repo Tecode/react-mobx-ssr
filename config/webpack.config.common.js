@@ -1,4 +1,4 @@
-const {resolve, join} = require('path');
+const {resolve} = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -51,6 +51,10 @@ module.exports = {
         })
       },
       {
+        test: /\.(less)$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader'
       }
@@ -64,12 +68,7 @@ module.exports = {
     new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
   resolve: {
-    modules: ['node_modules', join('src')],
-    alias: {
-      components: resolve(__dirname, 'src/components/'),
-      containers: resolve(__dirname, 'src/containers/'),
-      store: resolve(__dirname, 'src/store/')
-    }
+    modules: [resolve(__dirname, '../src/'), 'node_modules']
   },
   optimization: {
     splitChunks: {

@@ -15,7 +15,7 @@
     "url": "https://github.com/Tecode/react-mobx-ssr"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
     "start": "cross-env NODE_ENV=production node server.js",
     "prebuild": "rimraf build",
     "build": "npm run build:client",
@@ -98,6 +98,7 @@
     "express": "4.16.3",
     "mobx": "^4.3.1",
     "mobx-react": "^5.2.0",
+    "nodemon": "^1.17.5",
     "react-helmet": "^5.2.0",
     "webpack-isomorphic-tools": "^3.0.6",
     "winston": "2.4.2"

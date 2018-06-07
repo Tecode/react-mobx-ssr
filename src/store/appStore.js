@@ -1,13 +1,11 @@
-import { observable, action } from 'mobx';
+import {observable, action} from 'mobx';
 
 class AppSore {
-  constructor() {
-    this.name = '777'
-  }
-  @observable name = 'solo';
-  @action.bound log() {
+  @observable name = 'solo8969';
+  @action.bound
+  log() {
     console.log('mobx');
   }
 }
 
-export default new AppSore()
+export default new AppSore();

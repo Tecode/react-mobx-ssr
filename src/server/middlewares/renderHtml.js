@@ -18,7 +18,7 @@ export default function(path, req) {
   );
   const helmet = Helmet.renderStatic();
   const HTML_TEMPLATE = fs.readFileSync(path).toString();
-  const $template = cheerio.load(HTML_TEMPLATE);
+  const $template = cheerio.load(HTML_TEMPLATE, {decodeEntities: false});
   $template('head').append(helmet.title.toString() + helmet.meta.toString() + helmet.link.toString());
   $template('#app').html(renderToString(router));
   $template('#app').after(`<script>console.log('ok')</script>`);

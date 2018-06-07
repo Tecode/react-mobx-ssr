@@ -12,13 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/antonfisher/react-express-webpack.git"
+    "url": "https://github.com/Tecode/react-mobx-ssr"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node index.env.js",
-    "start": "cross-env NODE_ENV=production node index.pro.js",
+    "dev": "cross-env NODE_ENV=development node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "prebuild": "rimraf build",
-    "build": "npm run build:client && npm run build:server",
+    "build": "npm run build:client",
     "build:client": "cross-env NODE_ENV=production webpack -p --progress --config=config/webpack.config.prod.js",
     "build:server": "copyfiles -a -u 1 src/server/**/**/* build",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules -- .",

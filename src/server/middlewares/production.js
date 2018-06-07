@@ -3,7 +3,7 @@ import express from 'express';
 import compression from 'compression';
 import renderHtml from './renderHtml';
 
-const clientBuildPath = resolve(__dirname, '..', '..', 'client');
+const clientBuildPath = resolve(__dirname, '..', '..', '..', 'build', 'client');
 
 export default function(app) {
   app.use(compression());
@@ -11,6 +11,6 @@ export default function(app) {
 
   // all other requests be handled by UI itself
   app.get('*', (req, res) => {
-    res.send(renderHtml(resolve(clientBuildPath, 'index.html')), req);
+    res.send(renderHtml(resolve(clientBuildPath, 'index.html'), req));
   });
 }

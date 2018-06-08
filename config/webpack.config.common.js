@@ -3,6 +3,15 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV !== 'production';
+require.extensions['.scss'] = () => {
+  return;
+};
+require.extensions['.css'] = () => {
+  return;
+};
+require.extensions['.less'] = () => {
+  return;
+};
 
 module.exports = {
   target: 'web',
@@ -51,8 +60,31 @@ module.exports = {
         })
       },
       {
-        test: /\.(less)$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: {
+            loader: 'style-loader',
+            options: {sourceMap: IS_DEV}
+          },
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                localIdentName: IS_DEV ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
+                modules: true,
+                sourceMap: IS_DEV
+              }
+            },
+            {
+              loader: 'less-loader',
+              options: {sourceMap: IS_DEV}
+            },
+            {
+              loader: 'postcss-loader',
+              options: {sourceMap: IS_DEV}
+            }
+          ]
+        })
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,

@@ -3,7 +3,7 @@ import fs from 'fs';
 import {Helmet} from 'react-helmet';
 import cheerio from 'cheerio';
 import {renderToString} from 'react-dom/server';
-import {StaticRouter} from 'react-router-dom';
+import {StaticRouter} from 'react-router';
 import {Provider} from 'mobx-react';
 import App from '../../App';
 import allStore from '../../store';

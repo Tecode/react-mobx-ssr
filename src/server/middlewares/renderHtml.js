@@ -10,7 +10,6 @@ import allStore from '../../store';
 import {toJS} from 'mobx';
 
 export default function(path, req) {
-  console.log(req.originalUrl, '----------');
   allStore.miniStore = {name: 'PPPPP'};
   const context = {};
   const componentHTML = (
@@ -34,6 +33,5 @@ export default function(path, req) {
   $template('head').append(helmet.title.toString() + helmet.meta.toString() + helmet.link.toString());
   $template('#app').html(renderToString(componentHTML));
   $template('#app').after(`<script>window.__INITIAL_STATE__ = ${JSON.stringify(prepareStore(allStore))}</script>`);
-  console.log($template.html(), renderToString(componentHTML), '-------------sever');
   return $template.html();
 }

@@ -23,6 +23,7 @@ export default function(app) {
 
   // all other requests be handled by UI itself
   app.get('*', (req, res) => {
+    res.status('200');
     res.send(renderHtml(resolve(__dirname, '..', '..', '..', 'build-dev', 'client', 'client.html'), req));
   });
 }

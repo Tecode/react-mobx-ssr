@@ -3,15 +3,6 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV !== 'production';
-require.extensions['.scss'] = () => {
-  return;
-};
-require.extensions['.css'] = () => {
-  return;
-};
-require.extensions['.less'] = () => {
-  return;
-};
 
 module.exports = {
   target: 'web',

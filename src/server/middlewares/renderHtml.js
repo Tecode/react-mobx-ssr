@@ -10,10 +10,12 @@ import allStore from '../../store';
 import {toJS} from 'mobx';
 
 export default function(path, req) {
+  console.log(req.originalUrl, '----------');
   allStore.miniStore = {name: 'PPPPP'};
-  const router = (
+  const context = {};
+  const componentHTML = (
     <Provider {...allStore}>
-      <StaticRouter location={req.originalUrl}>
+      <StaticRouter location={req.originalUrl} context={context}>
         <App />
       </StaticRouter>
     </Provider>
@@ -30,7 +32,8 @@ export default function(path, req) {
   const HTML_TEMPLATE = fs.readFileSync(path).toString();
   const $template = cheerio.load(HTML_TEMPLATE, {decodeEntities: false});
   $template('head').append(helmet.title.toString() + helmet.meta.toString() + helmet.link.toString());
-  $template('#app').html(renderToString(router));
+  $template('#app').html(renderToString(componentHTML));
   $template('#app').after(`<script>window.__INITIAL_STATE__ = ${JSON.stringify(prepareStore(allStore))}</script>`);
+  console.log($template.html(), renderToString(componentHTML), '-------------sever');
   return $template.html();
 }

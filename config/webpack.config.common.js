@@ -1,4 +1,4 @@
-const {resolve} = require('path');
+const {resolve, join} = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -45,7 +45,8 @@ module.exports = {
               options: {
                 localIdentName: IS_DEV ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
                 modules: true,
-                sourceMap: IS_DEV
+                sourceMap: IS_DEV,
+                minimize: !IS_DEV
               }
             },
             {
@@ -72,7 +73,9 @@ module.exports = {
               options: {
                 localIdentName: IS_DEV ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
                 modules: true,
-                sourceMap: IS_DEV
+                sourceMap: IS_DEV,
+                minimize: !IS_DEV
+                // context: join(process.cwd(), '../src/')
               }
             },
             {

@@ -11,7 +11,7 @@ export default class NavBar extends Component {
     appStore: PropTypes.object
   };
   render() {
-    console.log(styles, '--------------styles');
+    console.log(styles, '--------------styles//');
     return (
       <div>
         <Helmet defaultTitle="文章相关" />

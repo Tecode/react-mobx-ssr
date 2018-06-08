@@ -14,7 +14,7 @@ export default function(path, req) {
   const context = {};
   const componentHTML = (
     <Provider {...allStore}>
-      <StaticRouter location={req.originalUrl} context={context}>
+      <StaticRouter location={req.url} context={context}>
         <App />
       </StaticRouter>
     </Provider>

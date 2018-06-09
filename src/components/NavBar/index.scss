@@ -1,0 +1,20 @@
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+  &:hover {
+    color: #1890ff;
+  }
+}
+
+.logo {
+  height: 32px;
+  background: #fafafa;
+  margin: 16px;
+}
+.layout {
+  height: 100%;
+  border-right: 1px solid #fafafa;
+}

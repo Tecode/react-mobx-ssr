@@ -58,6 +58,10 @@ module.exports = {
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: ['file-loader']
       }
     ]
   },

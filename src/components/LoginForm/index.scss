@@ -1,0 +1,11 @@
+.form_box {
+  width: 300px;
+  margin: 10% auto 0 auto;
+  .login_form_button {
+    width: 100%;
+    border-radius: 0;
+  }
+  input[class='ant-input'] {
+    border-radius: 0;
+  }
+}

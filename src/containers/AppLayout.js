@@ -3,7 +3,7 @@ import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 // import ModalsLayout from 'containers/ModalsLayout/index';
 // import NotFound from 'containers/NotFound';
-import NavBar from '../containers/NavBar';
+import NavBar from '../components/NavBar';
 
 export class AppLayout extends React.Component {
   // static propTypes = {
@@ -11,16 +11,11 @@ export class AppLayout extends React.Component {
   // };
   render() {
     return (
-      <section>
-        <section style={{paddingTop: 50}}>
-          <Switch>
-            <Route exact path="/" component={NavBar} />
-            {/*<Route exact path="/users" name="home-users" component={NotFound} />*/}
-            <Redirect to="/" />
-          </Switch>
-        </section>
-        {/*<ModalsLayout />*/}
-      </section>
+      <Switch>
+        <Route exact path="/" component={NavBar} />
+        {/*<Route exact path="/users" name="home-users" component={NotFound} />*/}
+        <Redirect to="/" />
+      </Switch>
     );
   }
 }

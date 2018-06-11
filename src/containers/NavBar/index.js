@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 import {observer, inject} from 'mobx-react';
-import styles from './index.less';
+import styles from './index.scss';
 
 @inject('appStore')
 @observer
@@ -11,7 +11,6 @@ export default class NavBar extends Component {
     appStore: PropTypes.object
   };
   render() {
-    console.log(styles, '--------------styles//');
     return (
       <div>
         <Helmet defaultTitle="文章相关" />

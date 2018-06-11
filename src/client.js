@@ -10,7 +10,7 @@ import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import combineServerData from './helpers/combineServer';
 // global styles
-import './style.scss';
+import 'antd/dist/antd.less';
 
 // apply polyfill
 if (!window.Intl) {

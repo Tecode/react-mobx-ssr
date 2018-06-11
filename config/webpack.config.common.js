@@ -1,4 +1,4 @@
-const {resolve, join} = require('path');
+const {resolve} = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -53,32 +53,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: {
-            loader: 'style-loader',
-            options: {sourceMap: IS_DEV}
-          },
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                localIdentName: IS_DEV ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
-                modules: true,
-                sourceMap: IS_DEV,
-                minimize: !IS_DEV
-                // context: join(process.cwd(), '../src/')
-              }
-            },
-            {
-              loader: 'less-loader',
-              options: {sourceMap: IS_DEV}
-            },
-            {
-              loader: 'postcss-loader',
-              options: {sourceMap: IS_DEV}
-            }
-          ]
-        })
+        use: ['style-loader', 'css-loader', 'less-loader']
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,

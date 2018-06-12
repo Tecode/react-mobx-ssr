@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import Menu from 'antd/lib/menu';
 import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
-// import img from '../../../imgs/BiazfanxmamNRoxxVxka.png';
+import img from '../../../imgs/BiazfanxmamNRoxxVxka.png';
 
 function Nav() {
   const menu = (
@@ -32,7 +32,7 @@ function Nav() {
         <Dropdown overlay={menu} placement="bottomRight">
           <div>
             <span className={styles.img_box}>
-              <img src={`gfg`} />
+              <img src={img} />
             </span>
             <span>Serati Ma</span>
           </div>

@@ -7,5 +7,8 @@ require.extensions['.css'] = () => {
 require.extensions['.less'] = () => {
   return;
 };
+require.extensions['.png'] = () => {
+  return;
+};
 require('babel-core/register');
 require('./src/server');

@@ -10,33 +10,18 @@ React boilerplate with ES2015, Express.js, and Webpack
 - Express.js (v4) as production and development server
 - Webpack 4 (production and development configurations)
 - SCSS support (+ sanitize.css included)
-- ES2015+
+- ES2015
+- antd v3.6.2
 
 ## Features
+- server side render
+- code split
 - preconfigured router
-- React Material UI example theme
+- React Antd UI example theme
 - preconfigured modal windows
 - preconfigured eslint and Prettier code formatter
 - React Hot Loader
 - Linux/MacOS/Windows
-
-## Screenshots
-
-Demo UI view:
-
-![Demo view](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew2-ui-screenshot.png)
-
-Development `.js` bundles:
-
-![Development js bundles](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew-stat-dev.png)
-
-Production `.js` bundles:
-
-![Production js bundles](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew-stat-prod.png)
-
-Production mode server output:
-
-![Production js bundles](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew-log-prod.png)
 
 ## Usage
 
@@ -71,3 +56,4 @@ HTTP_PORT=3001 npm run dev
 
 ## License
 MIT License. Free use and change.
+start

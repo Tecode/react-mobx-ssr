@@ -27,9 +27,9 @@ React boilerplate with ES2015, Express.js, and Webpack
 
 ### Installation
 ```bash
-git clone git@github.com:antonfisher/react-express-webpack.git
-cd react-express-webpack
-npm install
+git clone https://github.com/Tecode/react-mobx-ssr.git
+cd react-mobx-ssr
+npm install Or yarn
 
 # remove boilerplate git references
 rm ./.git

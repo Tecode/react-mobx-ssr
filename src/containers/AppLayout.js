@@ -14,7 +14,7 @@ export class AppLayout extends React.Component {
       <NavBar>
         <Switch>
           <Route exact path="/" component={() => <h1>首页</h1>} />
-          <Route path="/article" component={() => <h1>文章</h1>} />
+          <Route path="/article" component={() => <h1>文章873</h1>} />
           <Route path="*" component={NotFound} />
         </Switch>
       </NavBar>

@@ -18,6 +18,9 @@
     "jsx-a11y",
     "react"
   ],
+  "rules": {
+    "prettier/prettier": 0
+  },
   "settings": {
     "import/resolver": {
       "webpack": {

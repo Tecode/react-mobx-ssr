@@ -1,8 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import {Redirect, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 // import ModalsLayout from 'containers/ModalsLayout/index';
-// import NotFound from 'containers/NotFound';
+import NotFound from '../containers/NotFound';
 import NavBar from '../components/NavBar';
 
 export class AppLayout extends React.Component {
@@ -11,11 +11,13 @@ export class AppLayout extends React.Component {
   // };
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={NavBar} />
-        {/*<Route exact path="/users" name="home-users" component={NotFound} />*/}
-        <Redirect to="/" />
-      </Switch>
+      <NavBar>
+        <Switch>
+          <Route exact path="/" component={() => <h1>首页</h1>} />
+          <Route path="/article" component={() => <h1>文章</h1>} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </NavBar>
     );
   }
 }

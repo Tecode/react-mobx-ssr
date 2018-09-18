@@ -1,11 +1,11 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
 
-import Router from './router';
+import Routers from './router';
 
 class App extends React.Component {
   render() {
-    return <Router />;
+    return <Routers />;
   }
 }
 

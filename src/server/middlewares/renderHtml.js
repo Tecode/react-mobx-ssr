@@ -5,7 +5,7 @@ import cheerio from 'cheerio';
 import {renderToString} from 'react-dom/server';
 import {StaticRouter} from 'react-router';
 import {Provider} from 'mobx-react';
-import App from '../../components/cssModule';
+import App from '../../router';
 import allStore from '../../store';
 import {toJS} from 'mobx';
 
@@ -31,8 +31,8 @@ export default function(path, req) {
   const HTML_TEMPLATE = fs.readFileSync(path).toString();
   const $template = cheerio.load(HTML_TEMPLATE, {decodeEntities: false});
   $template('head').append(helmet.title.toString() + helmet.meta.toString() + helmet.link.toString());
-  console.log(renderToString(<App/>), '----------------------------appString')
-  $template('#app').html(renderToString(componentHTML));
+  // console.log(renderToString(<App/>), '----------------------------appString')
+  $template('#app').html(`<span>${renderToString(componentHTML)}</span>`);
   $template('#app').after(`<script>window.__INITIAL_STATE__ = ${JSON.stringify(prepareStore(allStore))}</script>`);
   return $template.html();
 }

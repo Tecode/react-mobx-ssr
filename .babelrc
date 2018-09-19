@@ -13,9 +13,13 @@
   "retainLines": true,
   "plugins": [
     "dynamic-import-node",
-    "syntax-dynamic-import",
     "react-hot-loader/babel",
     "transform-decorators-legacy",
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
+    ["import-inspector", {
+      "serverSideRequirePath": true,
+      "webpackRequireWeakId": true
+    }],
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }],
+    "syntax-dynamic-import"
   ]
 }

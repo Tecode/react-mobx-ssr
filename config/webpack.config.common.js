@@ -10,7 +10,7 @@ module.exports = {
   output: {
     publicPath: '/',
     path: resolve(__dirname, '..', 'build'),
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     chunkFilename: isDev ? '[name].chunk.js' : '[name].[chunkhash:8].chunk.js',
   },
   module: {
@@ -108,12 +108,33 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      name: true,
       cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
+        default: false,
+        vendors: false,
+
+        // vendor chunk
+        vendor: {
+          // name of the chunk
           name: 'vendor',
-          chunks: 'all'
+
+          // async + async chunks
+          chunks: 'all',
+
+          // import file path containing node_modules
+          test: /node_modules/,
+
+          // priority
+          priority: 20
+        },
+
+        // common chunk
+        common: {
+          name: 'common',
+          minChunks: 2,
+          chunks: 'all',
+          priority: 10,
+          reuseExistingChunk: true,
+          enforce: true
         }
       }
     }
@@ -121,7 +142,7 @@ module.exports = {
   stats: {
     assetsSort: '!size',
     children: false,
-    chunks: false,
+    chunks: true,
     colors: true,
     entrypoints: false,
     modules: false

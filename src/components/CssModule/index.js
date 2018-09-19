@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './index.scss'
 
-export default class App extends Component {
+export default class CssModule extends Component {
   render() {
     return (
       <div className={styles.wrapper}>

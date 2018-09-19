@@ -61,6 +61,7 @@
     "html-webpack-harddisk-plugin": "0.2.0",
     "html-webpack-plugin": "3.2.0",
     "immutable": "3.8.2",
+    "import-inspector": "^2.0.0",
     "intl": "1.2.5",
     "isomorphic-style-loader": "^4.0.0",
     "less": "^2.7.3",

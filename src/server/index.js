@@ -1,12 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import Loadable from 'react-loadable';
 import setupApiRoutes from './middlewares/api';
 import logger from './logger';
 import development from './middlewares/development';
 import production from './middlewares/production';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.HTTP_PORT = process.env.HTTP_PORT || 3001;
+const HTTP_PORT = process.env.HTTP_PORT || 3001;
 
 function onUnhandledError(err) {
   try {
@@ -35,6 +36,14 @@ app.use(bodyParser.json());
 setupApiRoutes(app);
 setupAppRoutes(app);
 
-app.listen(process.env.HTTP_PORT, function() {
-  logger.info(`HTTP server is now running on http://localhost:${process.env.HTTP_PORT}`);
-});
+if (HTTP_PORT) {
+  Loadable.preloadAll().then(() => {
+    app.listen(HTTP_PORT, function() {
+      logger.info(`HTTP server is now running on http://localhost:${HTTP_PORT}`);
+    });
+  });
+} else {
+  global.console.error(
+    '==> 😭  OMG!!! No PORT environment variable has been specified'
+  );
+}

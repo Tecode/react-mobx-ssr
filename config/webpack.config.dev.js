@@ -25,7 +25,7 @@ module.exports = merge(commonConfig, {
       alwaysWriteToDisk: true
     }),
     new HtmlWebpackHarddiskPlugin({
-      outputPath: resolve(__dirname, '..', 'build-dev', 'client')
+      outputPath: resolve(__dirname, '..', 'build-dev')
     })
   ]
 });

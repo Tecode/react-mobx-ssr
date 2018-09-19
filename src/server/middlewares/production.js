@@ -3,7 +3,7 @@ import express from 'express';
 import compression from 'compression';
 import renderHtml from './renderHtml';
 
-const clientBuildPath = resolve(__dirname, '..', '..', '..', 'build', 'client');
+const clientBuildPath = resolve(__dirname, '..', '..', '..', 'build');
 
 export default function(app) {
   app.use(compression());

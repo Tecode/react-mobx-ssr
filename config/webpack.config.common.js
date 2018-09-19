@@ -1,16 +1,17 @@
-const {resolve} = require('path');
+const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const IS_DEV = process.env.NODE_ENV !== 'production';
+const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   target: 'web',
   entry: ['./src/client.js'],
   output: {
     publicPath: '/',
-    path: resolve(__dirname, '..', 'build', 'client'),
-    filename: '[name].js'
+    path: resolve(__dirname, '..', 'build'),
+    filename: '[name].js',
+    chunkFilename: isDev ? '[name].chunk.js' : '[name].[chunkhash:8].chunk.js',
   },
   module: {
     rules: [
@@ -28,21 +29,21 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: {
             loader: 'style-loader',
-            options: {sourceMap: IS_DEV}
+            options: { sourceMap: isDev }
           },
           use: [
             {
               loader: 'css-loader',
               options: {
-                localIdentName: IS_DEV ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
+                localIdentName: isDev ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
                 modules: true,
-                sourceMap: IS_DEV,
-                minimize: !IS_DEV
+                sourceMap: isDev,
+                minimize: !isDev
               }
             },
             {
               loader: 'postcss-loader',
-              options: {sourceMap: IS_DEV}
+              options: { sourceMap: isDev }
             }
           ]
         })
@@ -52,27 +53,27 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: {
             loader: 'style-loader',
-            options: {sourceMap: IS_DEV}
+            options: { sourceMap: isDev }
           },
           use: [
             {
               loader: 'css-loader',
               options: {
-                localIdentName: IS_DEV ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
+                localIdentName: isDev ? '[path]-[name]_[local]' : '[name]_[local]_[hash:5]', // [hash:base64]
                 modules: true,
-                sourceMap: IS_DEV,
-                minimize: !IS_DEV
+                sourceMap: isDev,
+                minimize: !isDev
               }
             },
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: IS_DEV
+                sourceMap: isDev
               }
             },
             {
               loader: 'postcss-loader',
-              options: {sourceMap: IS_DEV}
+              options: { sourceMap: isDev }
             }
           ]
         })
@@ -98,7 +99,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin({
       filename: '[name].css',
-      disable: IS_DEV
+      disable: isDev
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
@@ -107,6 +108,7 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
+      name: true,
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,

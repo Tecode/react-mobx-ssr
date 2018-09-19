@@ -1,14 +1,16 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
+import Loadable from 'react-loadable';
 import intl from 'intl';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'mobx-react';
-import api from 'api/index';
+import { Provider } from 'mobx-react';
+// import api from 'api/index';
 import allStore from './store';
-import {BrowserRouter} from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import App from './App';
 import combineServerData from './helpers/combineServer';
+import browserHistory from './helpers/history';
 // global styles
 import 'antd/dist/antd.less';
 
@@ -17,13 +19,19 @@ if (!window.Intl) {
   window.Intl = intl;
 }
 
-api.setEndpoint('/api');
+// api.setEndpoint('/api');
 combineServerData(allStore, window.__INITIAL_STATE__);
-ReactDOM.hydrate(
-  <Provider {...allStore}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('app')
-);
+const renderApp = () => {
+  Loadable.preloadReady().then(() => {
+    ReactDOM.hydrate(
+      <Provider {...allStore}>
+        <Router history={browserHistory}>
+          <App />
+        </Router>
+      </Provider>,
+      document.getElementById('app')
+    )
+  });
+}
+
+renderApp();

@@ -1,4 +1,4 @@
-React boilerplate with ES2015, Express.js, and Webpack
+React+Mobx server side render boilerplate with ES2015, Express.js, and Webpack
 
 [![Build Status](https://travis-ci.org/antonfisher/react-express-webpack.svg?branch=master)](https://travis-ci.org/antonfisher/react-express-webpack)
 [![bitHound Dependencies](https://www.bithound.io/github/antonfisher/react-express-webpack/badges/dependencies.svg)](https://www.bithound.io/github/antonfisher/react-express-webpack/master/dependencies/npm)
@@ -11,14 +11,13 @@ React boilerplate with ES2015, Express.js, and Webpack
 - Webpack 4 (production and development configurations)
 - SCSS support (+ sanitize.css included)
 - ES2015
-- antd v3.6.2
+- Antd v3.6.2
 
 ## Features
-- server side render
-- code split
-- preconfigured router
+- Server side render(ssr)
+- Code splitting
+- Preconfigured router
 - React Antd UI example theme
-- preconfigured modal windows
 - preconfigured eslint and Prettier code formatter
 - React Hot Loader
 - Linux/MacOS/Windows
@@ -56,4 +55,3 @@ HTTP_PORT=3001 npm run dev
 
 ## License
 MIT License. Free use and change.
-start

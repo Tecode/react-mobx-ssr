@@ -12,9 +12,9 @@
   ],
   "retainLines": true,
   "plugins": [
+    "transform-runtime",
     "syntax-dynamic-import",
-    "dynamic-import-node",
-    "react-hot-loader/babel",
+    "react-loadable/babel",
     "transform-decorators-legacy",
     ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
   ]

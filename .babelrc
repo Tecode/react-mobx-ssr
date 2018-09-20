@@ -12,14 +12,10 @@
   ],
   "retainLines": true,
   "plugins": [
+    "syntax-dynamic-import",
     "dynamic-import-node",
     "react-hot-loader/babel",
     "transform-decorators-legacy",
-    ["import-inspector", {
-      "serverSideRequirePath": true,
-      "webpackRequireWeakId": true
-    }],
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }],
-    "syntax-dynamic-import"
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
   ]
 }

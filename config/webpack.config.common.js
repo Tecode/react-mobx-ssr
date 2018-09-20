@@ -6,7 +6,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   target: 'web',
-  entry: ['./src/client.js'],
+  entry: ['babel-polyfill', './src/client.js'],
   output: {
     publicPath: '/',
     path: resolve(__dirname, '..', 'build'),

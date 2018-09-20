@@ -5,12 +5,12 @@ import NotFound from '../containers/NotFound';
 import NavBar from '../components/NavBar';
 
 const Home = Loadable({
-  loader: () => import('../components/CssModule'),
+  loader: () => import('../components/CssModule' /* webpackChunkName: 'Home' */),
   loading: () => <p>加载中...</p>
 });
 
 const Article = Loadable({
-  loader: () => import('../components/Article'),
+  loader: () => import('../components/Article' /* webpackChunkName: 'Article' */),
   loading: () => <p>加载中...</p>
 });
 

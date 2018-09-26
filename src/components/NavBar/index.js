@@ -39,10 +39,6 @@ export default class NavBar extends Component {
                 <span>首页</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
           </Menu>
         </Sider>
         <Layout>

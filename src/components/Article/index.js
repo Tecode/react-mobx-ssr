@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Article = () => (
-    <p>2018-09-19T07:52:12.383Z - info: Application env: development
+    <p>MN2018-09-19T07:52:12.383Z - info: Application env: development
     2018-09-19T07:52:12.947Z - info: HTTP server is now running on http://localhost:3001
     webpack built 2400ef2b021b433f8527 in 5849ms
     2018-09-19T07:52:18.328Z - info: Hash: 2400ef2b021b433f8527

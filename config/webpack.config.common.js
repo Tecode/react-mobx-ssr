@@ -6,7 +6,10 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   target: 'web',
-  entry: ['babel-polyfill', './src/client.js'],
+  entry: [
+    'babel-polyfill',
+    './src/client.js'
+  ],
   output: {
     publicPath: '/',
     path: resolve(__dirname, '..', 'build'),
@@ -105,39 +108,11 @@ module.exports = {
   ],
   resolve: {
     modules: [resolve(__dirname, '../src/'), 'node_modules'],
-    extensions: [ '.js', '.scss', '.less' ]
+    extensions: ['.js', '.scss', '.less']
   },
   optimization: {
     splitChunks: {
-      cacheGroups: {
-        default: false,
-        vendors: false,
-
-        // vendor chunk
-        vendor: {
-          // name of the chunk
-          name: 'vendor',
-
-          // async + async chunks
-          chunks: 'all',
-
-          // import file path containing node_modules
-          test: /node_modules/,
-
-          // priority
-          priority: 20
-        },
-
-        // common chunk
-        common: {
-          name: 'common',
-          minChunks: 2,
-          chunks: 'all',
-          priority: 10,
-          reuseExistingChunk: true,
-          enforce: true
-        }
-      }
+      chunks: 'all'
     }
   },
   stats: {

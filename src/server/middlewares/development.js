@@ -23,6 +23,8 @@ export default function(app) {
 
   // all other requests be handled by UI itself
   app.get('*', (req, res) => {
+    // 同构刷新
+    global.webpackIsomorphicTools.refresh();
     res.status('200');
     res.send(renderHtml(resolve(__dirname, '..', '..', '..', 'build-dev', 'client.html'), req));
   });

@@ -4,3 +4,4 @@ node_modules
 .tags*
 .idea
 *.log
+webpack-assets.json

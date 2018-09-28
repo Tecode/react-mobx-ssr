@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import Loadable from 'react-loadable';
+import { join } from 'path';
 import setupApiRoutes from './middlewares/api';
 import logger from './logger';
 import development from './middlewares/development';
@@ -25,6 +26,8 @@ process.on('uncaughtException', onUnhandledError);
 const setupAppRoutes = process.env.NODE_ENV === 'development' ? development : production;
 
 const app = express();
+
+app.use(express.static(join(process.cwd(), './public')));
 
 app.set('env', process.env.NODE_ENV);
 logger.info(`Application env: ${process.env.NODE_ENV}`);

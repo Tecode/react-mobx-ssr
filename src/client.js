@@ -11,8 +11,6 @@ import { Router } from 'react-router-dom';
 import App from './App';
 import combineServerData from './helpers/combineServer';
 import browserHistory from './helpers/history';
-// global styles
-import 'antd/dist/antd.less';
 
 // apply polyfill
 if (!window.Intl) {

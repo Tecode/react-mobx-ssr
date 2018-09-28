@@ -114,6 +114,7 @@
     "nodemon": "^1.17.5",
     "react-helmet": "^5.2.0",
     "react-loadable": "^5.5.0",
+    "url-loader": "^1.1.1",
     "winston": "2.4.2"
   }
 }

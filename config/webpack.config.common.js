@@ -1,8 +1,18 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 
 const isDev = process.env.NODE_ENV !== 'production';
+// 同构工具
+const webpackIsomorphicToolsPlugin = 
+  // webpack-isomorphic-tools settings reside in a separate .js file 
+  // (because they will be used in the web server code too).
+  new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools-configuration'))
+  // also enter development mode since it's a development webpack configuration
+  // (see below for explanation)
+  .development(isDev);
+
 
 module.exports = {
   target: 'web',
@@ -18,6 +28,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: webpackIsomorphicToolsPlugin.regularExpression('images'),
+        loader: 'url-loader?limit=10240'
+      },
       {
         test: /\.js$/,
         use: ['babel-loader'],
@@ -83,7 +97,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        use: ['css-loader', 'less-loader'] //style-loader
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -101,10 +115,13 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: '[name].css',
-      disable: isDev
+      filename: '[name].[hash:8].css',
+      allChunks: true,
+      disable: isDev, // Disable css extracting on development
+      ignoreOrder: true
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV'])
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    webpackIsomorphicToolsPlugin
   ],
   resolve: {
     modules: [resolve(__dirname, '../src/'), 'node_modules'],
@@ -112,6 +129,7 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
+      name: 'vendor',
       chunks: 'all'
     }
   },

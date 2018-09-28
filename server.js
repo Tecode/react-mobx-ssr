@@ -10,7 +10,7 @@ require.extensions['.less'] = () => {
 require.extensions['.png'] = () => {
   return;
 };
-require("babel-register")({
+require("@babel/register")({
   "plugins": [
     "dynamic-import-node"
   ]

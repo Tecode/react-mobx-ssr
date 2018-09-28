@@ -7,7 +7,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 module.exports = {
   target: 'web',
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     './src/client.js'
   ],
   output: {

@@ -4,6 +4,11 @@ React+Mobx server side render boilerplate with ES2015, Express.js, and Webpack
 [![bitHound Dependencies](https://www.bithound.io/github/antonfisher/react-express-webpack/badges/dependencies.svg)](https://www.bithound.io/github/antonfisher/react-express-webpack/master/dependencies/npm)
 [![GitHub license](https://img.shields.io/github/license/antonfisher/react-express-webpack.svg)](https://github.com/antonfisher/react-express-webpack/blob/master/LICENSE)
 
+## 更新
+
+- Babel7版本请切换分支到babel-7
+- 或者访问[https://github.com/Tecode/react-mobx-ssr/tree/babel-7](https://github.com/Tecode/react-mobx-ssr/tree/babel-7)
+
 ## Technologies
 
 - React (v16) + Mobx (v4) + React Router (v4)

@@ -1,7 +1,7 @@
 import {observable, action} from 'mobx';
 
 class AppSore {
-  @observable name = 'solo8969';
+  @observable name = 'Node.js';
   @observable day = '2096';
   @action.bound
   log() {

@@ -11,6 +11,7 @@ export default class CssModule extends Component {
         <span className={styles.name}>MIKOLC</span>
         Hello world!
         <span className={styles.store}>Store: {this.props.appStore.name}</span>
+        <span className={styles.other}>Other: {this.props.appStore.name}</span>
       </div>
     );
   }

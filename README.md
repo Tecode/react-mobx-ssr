@@ -6,6 +6,7 @@ React+Mobx server side render boilerplate with ES2015, Express.js, and Webpack
 
 ## Technologies
 
+- Babel7
 - React (v16) + Mobx (v4) + React Router (v4)
 - Express.js (v4) as production and development server
 - Webpack 4.12.0 (production and development configurations)

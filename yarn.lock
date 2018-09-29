@@ -3,15 +3,15 @@
 
 
 "@ant-design/icons-react@~1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@ant-design/icons-react/-/icons-react-1.1.1.tgz#6b58eb7cc5612392a2c4347d27d85e599d130661"
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons-react/-/icons-react-1.1.2.tgz#df25c4560864f8a3b687b305c3238daff048ed72"
   dependencies:
     ant-design-palettes "^1.1.3"
     babel-runtime "^6.26.0"
 
 "@ant-design/icons@~1.1.5":
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-1.1.13.tgz#90da8293d1dc0267b047c28cb5248266ef1aa5fc"
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-1.1.14.tgz#c85581c21c5a724c16b038f123ae26c624727486"
 
 "@babel/cli@^7.0.0":
   version "7.1.2"
@@ -8492,8 +8492,8 @@ rc-input-number@~4.0.0:
     rmc-feedback "^2.0.0"
 
 rc-menu@^7.3.0, rc-menu@~7.4.1:
-  version "7.4.10"
-  resolved "https://registry.yarnpkg.com/rc-menu/-/rc-menu-7.4.10.tgz#d727febd85cbf04b5dbb1f9e2c50a3db52e7266e"
+  version "7.4.11"
+  resolved "https://registry.yarnpkg.com/rc-menu/-/rc-menu-7.4.11.tgz#e0ab046b27fc9c5be7d301ef14e8a4775f35f176"
   dependencies:
     babel-runtime "6.x"
     classnames "2.x"
@@ -10595,7 +10595,7 @@ utils-merge@1.0.1:
 
 uuid@^2.0.1:
   version "2.0.3"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+  resolved "http://registry.npmjs.org/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
 uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
   version "3.3.2"

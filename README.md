@@ -38,6 +38,7 @@ rm ./.git
 ### Scripts
 ```bash
 # run development mode
+npm run build
 npm run dev
 
 # run production mode

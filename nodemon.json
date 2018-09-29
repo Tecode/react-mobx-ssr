@@ -2,9 +2,9 @@
     "verbose": true,
     "ignore": ["node_modules"],
     "watch": [
-      "src/server",
-      "store/",
-      "server.js"
+      "./scr/server/",
+      "./src/store/",
+      "./server.js"
     ]
   }
   

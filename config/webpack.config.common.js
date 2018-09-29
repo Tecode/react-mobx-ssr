@@ -5,13 +5,13 @@ const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 
 const isDev = process.env.NODE_ENV !== 'production';
 // 同构工具
-const webpackIsomorphicToolsPlugin = 
+const webpackIsomorphicToolsPlugin =
   // webpack-isomorphic-tools settings reside in a separate .js file 
   // (because they will be used in the web server code too).
   new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools-configuration'))
-  // also enter development mode since it's a development webpack configuration
-  // (see below for explanation)
-  .development(isDev);
+    // also enter development mode since it's a development webpack configuration
+    // (see below for explanation)
+    .development(isDev);
 
 
 module.exports = {
@@ -28,10 +28,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: webpackIsomorphicToolsPlugin.regularExpression('images'),
-        loader: 'url-loader?limit=10240'
-      },
       {
         test: /\.js$/,
         use: ['babel-loader'],

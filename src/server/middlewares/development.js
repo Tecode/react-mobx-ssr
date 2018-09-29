@@ -1,4 +1,3 @@
-import {resolve} from 'path';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
@@ -26,6 +25,6 @@ export default function(app) {
     // 同构刷新
     global.webpackIsomorphicTools.refresh();
     res.status('200');
-    res.send(renderHtml(resolve(__dirname, '..', '..', '..', 'build-dev', 'client.html'), req));
+    res.send(renderHtml(req));
   });
 }

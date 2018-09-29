@@ -11,7 +11,6 @@ const Html = ({ componentHTML, initData }) => {
         <meta charset="UTF-8" />
         <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="author" content="aming" />
         <title>React服务端渲染</title>
@@ -23,7 +22,6 @@ const Html = ({ componentHTML, initData }) => {
           href="/vendors/css/antd.min.css"
           rel="stylesheet"
           type="text/css"
-          charSet="UTF-8"
         />
         {_.keys(assets.styles).map(style => (
           <link
@@ -40,7 +38,7 @@ const Html = ({ componentHTML, initData }) => {
           { componentHTML } 
         </div>
       </body>
-      <script dangerouslySetInnerHTML={{ __html: initData  }} />
+      <script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__ = ${initData}`  }} />
       <script key={_.uniqueId()} src={assets.javascript.vendor} />
       <script id="mainJs" key={_.uniqueId()} src={assets.javascript.main} />
     </html>

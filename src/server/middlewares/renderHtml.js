@@ -1,7 +1,4 @@
 import React from 'react';
-// import fs from 'fs';
-// import { Helmet } from 'react-helmet';
-// import cheerio from 'cheerio';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { Provider } from 'mobx-react';
@@ -10,7 +7,7 @@ import App from '../../router';
 import allStore from '../../store';
 import { toJS } from 'mobx';
 
-export default function (path, req) {
+export default function (req) {
   allStore.miniStore = { name: 'PPPPP' };
   const context = {};
   const componentHTML = (
@@ -28,13 +25,6 @@ export default function (path, req) {
     });
     return output;
   };
-  // const helmet = Helmet.renderStatic();
-  // const HTML_TEMPLATE = fs.readFileSync(path).toString();
-  // const $template = cheerio.load(HTML_TEMPLATE, { decodeEntities: false });
-  // $template('head').append(helmet.title.toString() + helmet.meta.toString() + helmet.link.toString());
-  // console.log(renderToString(<App/>), '----------------------------appString')
-  // $template('#app').html(`<span>${renderToString(componentHTML)}</span>`);
-  // $template('#app').after(`<script>window.__INITIAL_STATE__ = ${JSON.stringify(prepareStore(allStore))}</script>`);
   return `${'<!doctype html>\n' +
     '<!-- Polyfills -->\n' +
     '<!--[if lt IE 10]>\n' +

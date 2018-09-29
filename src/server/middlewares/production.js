@@ -12,6 +12,6 @@ export default function(app) {
   // all other requests be handled by UI itself
   app.get('*', (req, res) => {
     res.status('200');
-    res.send(renderHtml(resolve(clientBuildPath, 'server.html'), req));
+    res.send(renderHtml(req));
   });
 }

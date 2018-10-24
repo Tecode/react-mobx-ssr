@@ -113,7 +113,7 @@ module.exports = {
     new ExtractTextPlugin({
       filename: '[name].[hash:8].css',
       allChunks: true,
-      disable: isDev, // Disable css extracting on development
+      // disable: true, // Disable css extracting on development
       ignoreOrder: true
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
@@ -121,6 +121,10 @@ module.exports = {
   ],
   resolve: {
     modules: [resolve(__dirname, '../src/'), 'node_modules'],
+    alias: {
+      components: resolve(__dirname, '../src/components/'),
+      containers: resolve(__dirname, '../src/containers/')
+    },
     extensions: ['.js', '.scss', '.less']
   },
   optimization: {
